@@ -10,6 +10,9 @@ $(document).ready(() => {
     } else {
       delete amenitiesCheck[$(this).data('id')];
     }
-    $('div.amenites h4').text(Object.values(amenitiesCheck));
+    $('div.amenites h4').text(Object.values(amenitiesCheck).join(', '));
+    if (Object.keys(amenitiesCheck).length === 0) {
+      $('div.amenites h4').text('\u00A0');
+    }
   });
 });
