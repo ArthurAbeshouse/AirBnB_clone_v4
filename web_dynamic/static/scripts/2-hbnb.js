@@ -13,14 +13,13 @@ window.onload = function () {
       $('div.amenities h4').html('&nbsp;');
     }
   });
-  
+
   $.get('http://127.0.0.1:5001/api/v1/status/', (data, status) => {
-      console.log(data.status);
-      if (data.status === 'OK') {
-          
-          $('div#api_status').addClass('available');
-        } else {
-            $('div#api_statis').removeClass('available');
-        }
-    });
+    console.log(data.status);
+    if (data.status === 'OK') {
+      $('div#api_status').addClass('available');
+    } else {
+      $('div#api_statis').removeClass('available');
+    }
+  });
 };
