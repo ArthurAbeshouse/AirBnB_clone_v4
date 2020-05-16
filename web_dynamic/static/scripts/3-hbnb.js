@@ -26,32 +26,21 @@ window.onload = function () {
 
 $.ajax({
   type: 'POST',
-  url: 'http://0.0.0.0:5001/api/v1/places_search/',
+  url: 'http://0.0.0.0:5001/api/v1/places_search',
   data: '{}',
   dataType: 'json',
   contentType: 'application/json',
   success: function (data) {
-    for (const place of data) {
-      $('section.places').append(
-	'<article><div class="title_box"><h2>' +
-	  place.name +
-	  '</h2><div class="price_by_night">' +
-	  place.price_by_night +
-	  '</div></div><div class="information"><div class="max_guest">' +
-	  place.max_guest +
-	  'Guest{% if place.max_guest != 1 %}s{% endif %}' +
-	  '</div><div class="number_rooms">' +
-	  'Bedroom{% if place.number_rooms != 1 %}s{% endif %}' +
-	  '</div><div class="number_bathrooms">' +
-	  place.number_bathrooms +
-	  'Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}' +
-	  '</div></div><div class="user"><b>Owner:</b>' +
-	  place.user.first_name +
-	  place.user.last_name +
-	  '</div><div class="description">' +
-	  '{{ place.description | safe }}' +
-	  '</div></article>{% endfor %}');
+    for (let index = 0; index < data.length; index++) {
+      const place = data[index];
+      $('.places').append('<article><div class="title_box"> <h2>' + place.name +
+      '</h2> <div class="price_by_night">$' + place.price_by_night +
+      '</div></div><div class="information"><div class="max_guest">' +
+      '<div class="guest_image"></div><p>' +
+      place.max_guest + '</div><div class="number_rooms"><div class="bed_image"></div>' +
+      place.number_rooms + '</div><div class="number_bathrooms"><div class="bath_image"></div>' +
+      place.number_bathrooms + '</div></div><div class="description">' +
+       place.description + '</div></article>');
     }
   }
 });
-  
