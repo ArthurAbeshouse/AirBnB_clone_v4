@@ -16,11 +16,9 @@ window.onload = function () {
 };
 
 $.get('http://0.0.0.0:5001/api/v1/status/', (data, status) => {
-  if (status === 'success') {
-    if (data.status === 'OK') {
+  if (status === 'success' && data.status === 'OK') {
       $('div#api_status').addClass('available');
     } else {
       $('div#api_statis').removeClass('available');
     }
-  }
 });
