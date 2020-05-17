@@ -1,24 +1,24 @@
- 
-     const stateCityCheck = {}
-      $(document).ready(function () {
-     $('.locations').on('change', "input[type='checkbox']", function () {
-       console.log('Checked');
-     if (this.checked) {
-       stateCityCheck[$(this).data('id')] = $(this).data('name');
-     } else {
-       delete stateCityCheck[$(this).data('id')];
-     }
-     const stateCityList = Object.values(stateCityCheck);
-     console.log(stateCityList);
-     
-     if (stateCityList.length > 0) {
-       $('div.locations h4').text(Object.values(stateCityList).join(', '));
-     } else {
-       $('div.locations h4').html('&nbsp;');
-     }
-   });
 
-const amenitiesCheck = {};
+const stateCityCheck = {};
+$(document).ready(function () {
+  $('.locations').on('change', "input[type='checkbox']", function () {
+    console.log('Checked');
+    if (this.checked) {
+      stateCityCheck[$(this).data('id')] = $(this).data('name');
+    } else {
+      delete stateCityCheck[$(this).data('id')];
+    }
+    const stateCityList = Object.values(stateCityCheck);
+    console.log(stateCityList);
+
+    if (stateCityList.length > 0) {
+      $('div.locations h4').text(Object.values(stateCityList).join(', '));
+    } else {
+      $('div.locations h4').html('&nbsp;');
+    }
+  });
+
+  const amenitiesCheck = {};
   $('.amenities').on('change', "input[type='checkbox']", function () {
     if (this.checked) {
       amenitiesCheck[$(this).data('id')] = $(this).data('name');
@@ -31,8 +31,6 @@ const amenitiesCheck = {};
     } else {
       $('div.amenities h4').html('&nbsp;');
     }
- 
-
 
     $.get('http://127.0.0.1:5001/api/v1/status/', (data, status) => {
       console.log(data.status);
