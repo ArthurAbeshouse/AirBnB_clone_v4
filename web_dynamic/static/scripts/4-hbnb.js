@@ -24,7 +24,7 @@ $(document).ready(function () {
   });
 
   $('BUTTON').click(function () {
-          const amenitiesId = Object.keys(amenitiesCheck);
+    const amenitiesId = Object.keys(amenitiesCheck);
     $.ajax({
       type: 'POST',
       url: 'http://127.0.0.1:5001/api/v1/places_search',
@@ -33,16 +33,19 @@ $(document).ready(function () {
       contentType: 'application/json',
       success: function (data) {
         console.log(data);
+        let page = '';
         for (let index = 0; index < data.length; index++) {
           const place = data[index];
-          $('section.places').append('<article><div class="title_box"> <h2>' + place.name +
+          const htmlPage = '<article><div class="title_box"> <h2>' + place.name +
         '</h2> <div class="price_by_night">$' + place.price_by_night +
         '</div></div><div class="information"><div class="max_guest">' +
         '<div class="guest_image"></div><p>' +
         place.max_guest + '</div><div class="number_rooms"><div class="bed_image"></div>' +
         place.number_rooms + '</div><div class="number_bathrooms"><div class="bath_image"></div>' +
         place.number_bathrooms + '</div></div><div class="description">' +
-        place.description + '</div></article>');
+        place.description + '</div></article>';
+          page += htmlPage;
+          $('section.places').html(page);
         }
       }
     });
