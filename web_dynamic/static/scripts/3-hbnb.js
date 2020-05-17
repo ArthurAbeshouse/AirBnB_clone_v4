@@ -26,14 +26,14 @@ window.onload = function () {
 
 $.ajax({
   type: 'POST',
-  url: 'http://0.0.0.0:5001/api/v1/places_search',
+  url: 'http://127.0.0.1:5001/api/v1/places_search',
   data: '{}',
   dataType: 'json',
   contentType: 'application/json',
   success: function (data) {
     for (let index = 0; index < data.length; index++) {
       const place = data[index];
-      $('.places').append('<article><div class="title_box"> <h2>' + place.name +
+      $('section.places').append('<article><div class="title_box"> <h2>' + place.name +
       '</h2> <div class="price_by_night">$' + place.price_by_night +
       '</div></div><div class="information"><div class="max_guest">' +
       '<div class="guest_image"></div><p>' +
