@@ -39,7 +39,7 @@ $(document).ready(function () {
           const htmlPage = '<article><div class="title_box"> <h2>' + place.name +
         '</h2> <div class="price_by_night">$' + place.price_by_night +
         '</div></div><div class="information"><div class="max_guest">' +
-        '<div class="guest_image"></div><p>' +
+        '<div class="guest_image"></div>' +
         place.max_guest + ' Guests' + '</div><div class="number_rooms"><div class="bed_image"></div>' +
         place.number_rooms + ' Bedrooms' + '</div><div class="number_bathrooms"><div class="bath_image"></div>' +
         place.number_bathrooms + ' Bathrooms' + '</div></div><div class="description">' +
