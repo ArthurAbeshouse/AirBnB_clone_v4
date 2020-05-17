@@ -36,11 +36,13 @@ button:hover {
     font-weight: 600;
 }
 .filters h4 {
-    margin-left: 15%;
-    margin-top: 0;
+    height: 18px;
+    width: 223px;
+    overflow: hidden;
+    margin: 7px 0 9px 40px;
     font-weight: 400;
     font-size: 14px;
-    text-overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 .locations {
@@ -82,6 +84,7 @@ button:hover {
 
 .locations .popover {
     margin-top: 0%;
+    max-width: 249px;
 }
 .popover ul {
     list-style-type: none;
